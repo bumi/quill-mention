@@ -480,7 +480,10 @@ class Mention {
     }
   }
 
-  onSelectionChange(range) {
+  onSelectionChange(range, oldRange, source) {
+    if (!source === "user") {
+      return;
+    }
     if (range && range.length === 0) {
       this.onSomethingChange();
     } else {
